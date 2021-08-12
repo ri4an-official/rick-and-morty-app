@@ -1,0 +1,28 @@
+html {
+    background-color: rgb(30, 26, 66);
+    color: white;
+    .app {
+        text-align: center;
+        .counter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            button {
+                font-size: 20px;
+                height: 80px;
+                width: 80px;
+            }
+            .counter-value {
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 40px;
+                width: 150px;
+                height: 150px;
+            }
+        }
+        img {
+            $size: 500px;
+            width: $size;
+            height: $size;
+        }
+    }
+}
