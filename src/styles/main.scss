@@ -1,30 +1,99 @@
-html {
-    background-color: rgb(30, 26, 66);
-    color: white;
-    .app {
+.app {
+    @import './colors.scss';
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    .center {
         text-align: center;
-        .counter {
+    }
+    .profile {
+        min-width: 100%;
+        .header {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            button {
-                font-size: 20px;
-                height: 80px;
-                width: 80px;
-            }
-            .counter-value {
-                border-radius: 10px;
-                margin: 5%;
-                font-family: Arial, Helvetica, sans-serif;
-                font-size: 40px;
-                width: 100px;
-                height: 50px;
-            }
+            justify-content: space-between;
         }
-        img {
-            $size: 500px;
-            width: $size;
-            height: $size;
+        .content {
+            .avatar {
+                width: 118px;
+                height: 118px;
+                border-radius: 100%;
+                display: block;
+                margin: auto;
+            }
+            .add-violet {
+                position: relative;
+                left: 210px;
+                top: -50px;
+            }
+            .nickname {
+                font-size: 16px;
+            }
+            .hobby {
+                font-size: 12px;
+                color: gray;
+            }
+            .nickname,
+            .hobby {
+                top: 5px;
+                bottom: 5px;
+            }
+            .friends {
+                display: flex;
+                flex-direction: column;
+                .friend {
+                    * {
+                        margin: 3px;
+                    }
+                    display: flex;
+                    margin: 15px;
+                    .avatar {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 100%;
+                    }
+                    .close {
+                        color: $red200;
+                        width: 14px;
+                        height: 14px;
+                        margin-left: auto;
+                        margin-top: 15px;
+                    }
+                }
+                .btn-add {
+                    border: 0.5px solid;
+                    * {
+                        margin: 5px;
+                    }
+                    text-align: center;
+                }
+            }
+
+            .media {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+                .photo {
+                    border-radius: 10%;
+                    width: 96.62px;
+                    height: 96.62px;
+                }
+                .btn-close {
+                    position: relative;
+                    left: -23px;
+                    top: -75px;
+                    z-index: 2;
+                    width: 24px;
+                    height: 24px;
+                }
+                .btn-delete {
+                    background-color: $violet500;
+                    color: white;
+                    flex: 1 1 auto;
+                }
+                .btn-add-2 {
+                    color: $violet500;
+                    flex: 1 1 auto;
+                }
+            }
         }
     }
 }
