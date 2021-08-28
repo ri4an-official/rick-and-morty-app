@@ -1,22 +1,23 @@
 import { Episode } from './Episode'
+import { Location } from './Location'
 
 export enum Status {
     Alive,
     Dead,
-    unknown,
+    Unknown,
 }
 
 export enum Gender {
     Male,
     Female,
-    Genderless,
-    unknown,
+    Asexual,
 }
 
 export type Character = {
+    id: string
     firstName?: string
     lastName?: string
-    fullName?: string
+    fullName: string // maybe is null
     status: Status
     about?: string
     gender: Gender
@@ -24,5 +25,7 @@ export type Character = {
     imageName?: string
     locationId?: string
     placeOfBirthId?: string
-    episodes: Episode[]
+    location?: Location
+    placeOfBirth?: Location
+    episodes?: Episode[]
 }
