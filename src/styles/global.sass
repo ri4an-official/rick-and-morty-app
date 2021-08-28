@@ -1,0 +1,145 @@
+@import colors
+@import svg
+@import default
+html,body
+    margin: 0
+    padding: 0
+
+html
+    width: 366px
+    background-color: $bgColor
+    color: $white
+    font-family: Arial, Helvetica, sans-serif
+    display: flex
+    justify-content: center
+    align-items: center
+    img
+        object-fit: cover
+    a
+        text-decoration: none
+        color: $white
+    .app
+        .content
+            margin: 5px
+            .loader
+                border-radius: 50%
+                display: block
+                margin: 0 auto
+                text-align: center
+                img
+                    width: 50%
+                    height: 50%
+            .title
+                display: flex
+                margin-left: auto
+                margin-right: auto
+                width: 270px
+                height: 379px
+            .characters
+                display: flex
+                flex-wrap: wrap
+
+                .character-item
+                    margin: 5px
+                    font-size: 14px
+                    display: flex
+
+                    .ava
+                        width: 74px
+                        height: 74px
+                        border-radius: 50%
+                        object-fit: cover
+                    .about-character
+                        margin: 10px
+                        margin-left: 10px
+                        *
+                            margin: 5px
+                        .name
+                            font-size: 16px
+                        .alive
+                            color: $green
+                        .dead
+                            color: $red
+                        .uknown
+                            color: $gray2
+                        .alive,.dead,.uknown
+                            font-size: 10px
+                        .gender,.race
+                            font-size: 12px
+                            color: $gray2
+            .selected-character
+                font-size: 13px
+                .ava
+                    position: absolute
+                    top: 138px
+                    left: 110px
+                    width: 146px
+                    height: 146px
+                    border-radius: 50%
+                    border: 7px solid
+                    border-color: $bgColor
+                .bg-image
+                    width: 100%
+                    height: 218px
+                    filter: blur(3px)
+                    z-index: -1
+                    opacity: 0.5
+                .name
+                    margin-top: 90px
+                    font-size: 34px
+                .alive
+                    color: $green
+                .dead
+                    color: $red
+                .uknown
+                    color: $gray2
+                .alive,.dead,.uknown
+                    margin: 12px
+                    font-size: 10px
+                .gender,.race
+                    font-size: 14px
+                    color: $gray2
+            .episodes
+                .episode-item
+                    display: flex
+                    img
+                        width: 60px
+                        height: 60px
+                        border-radius: 10%
+                        object-fit: cover
+                    .about-episode
+                        margin-bottom: 30px
+                        *
+                            margin: 3px 10px 2px 10px
+
+                        .name
+                            font-size: 16px
+                        .series
+                            font-size: 10px
+                            color: $blue
+                        .premiere
+                            font-size: 14px
+                            color: $gray2
+            .selected-episode
+                .video-player
+                    .bg-image
+                        width: 366px
+                        height: 274px
+                        z-index: -1
+                    .player
+                        z-index: 2
+
+        .nav-bar
+            width: 100%
+            background-color: $bgColor2
+            display: flex
+            text-align: center
+            position: fixed
+            bottom: 0px
+            z-index: 99
+            a
+                font-size: 12px
+                flex-grow: 1
+                text-decoration: none
+                color: $gray1
+                padding: 10px
