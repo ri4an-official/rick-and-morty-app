@@ -5,6 +5,7 @@ import characters from '../../models/store/characters'
 import { GenderCharacter, StatusCharacter } from './CharacterItem'
 import { Loader } from '../base/Loader'
 import { EpisodeItem } from '../Episodes/EpisodeItem'
+import { ArrowIcon } from '../base/icons/ArrowIcon'
 export const SelectedCharacter = observer(() => {
     const id = useParams<{ id: string }>().id
     useAsyncEffect(async () => {
@@ -22,20 +23,24 @@ export const SelectedCharacter = observer(() => {
 
             <p className='about'>{sch.about}</p>
             <div className='description'>
-                <div className='gender'>
-                    Пол: <br /> <GenderCharacter>{sch.gender}</GenderCharacter>
+                <div>
+                    Пол <br /> <GenderCharacter>{sch.gender}</GenderCharacter>
                 </div>
-                <div className='race'>
-                    Раса: <br /> {sch.race}
+                <div>
+                    Раса <br /> <div className='race'>{sch.race}</div>
                 </div>
-                <div className='placeOfBirth'>
+                <div>
+                    Место рождения <br />
                     <Link to={`/locations/${sch.placeOfBirthId}`}>
-                        Место рождения: <br /> {sch.placeOfBirth?.name}
+                        <div className='placeOfBirth'>{sch.placeOfBirth?.name}</div>
+                        <ArrowIcon />
                     </Link>
                 </div>
-                <div className='location'>
-                    <Link to={`/locations/${sch.placeOfBirthId}`}>
-                        Место нахождения: <br /> {sch.location?.name}
+                <div>
+                    Место нахождения <br />
+                    <Link to={`/locations/${sch.locationId}`}>
+                        <div className='location'>{sch.location?.name}</div>
+                        <ArrowIcon />
                     </Link>
                 </div>
             </div>
