@@ -6,10 +6,12 @@ html,body
     padding: 0
 
 html
-    width: 366px
     background-color: $bgColor
     color: $white
     font-family: Arial, Helvetica, sans-serif
+    font-weight: 400
+    line-height: 19.5px
+    letter-spacing: 0.5px
     display: flex
     justify-content: center
     align-items: center
@@ -38,9 +40,8 @@ html
             .characters
                 display: flex
                 flex-wrap: wrap
-
                 .character-item
-                    margin: 5px
+                    margin: 10px
                     font-size: 14px
                     display: flex
 
@@ -50,10 +51,10 @@ html
                         border-radius: 50%
                         object-fit: cover
                     .about-character
-                        margin: 10px
+                        margin: 5px
                         margin-left: 10px
                         *
-                            margin: 5px
+                            margin: 3px
                         .name
                             font-size: 16px
                         .alive
@@ -99,6 +100,19 @@ html
                 .gender,.race
                     font-size: 14px
                     color: $gray2
+                .about
+                    font-size: 13px
+                .description
+                    display: flex
+                    .gender
+                        flex: 50%
+                    .race
+                        flex: 50%
+                    .placeOfBirth
+                        flex: 100%
+                    .location
+                        flex: 100%
+
             .episodes
                 .episode-item
                     display: flex
@@ -111,7 +125,6 @@ html
                         margin-bottom: 30px
                         *
                             margin: 3px 10px 2px 10px
-
                         .name
                             font-size: 16px
                         .series
@@ -121,6 +134,20 @@ html
                             font-size: 14px
                             color: $gray2
             .selected-episode
+
+                .name
+                    font-size: 24px
+                .series
+                    margin: 15px
+                    font-size: 10px
+                    color: $blue
+                    &::before
+                        content: 'СЕРИЯ '
+                .premiere
+                    font-size: 14px
+                    color: $gray2
+                    &::before
+                        content: 'Премьера '
                 .video-player
                     .bg-image
                         width: 366px
@@ -134,7 +161,7 @@ html
             background-color: $bgColor2
             display: flex
             text-align: center
-            position: fixed
+            position: sticky
             bottom: 0px
             z-index: 99
             a

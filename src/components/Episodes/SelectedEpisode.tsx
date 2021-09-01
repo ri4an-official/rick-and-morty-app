@@ -18,7 +18,7 @@ export const SelectedEpisode = observer(() => {
                 <img className='play' src={video} alt='video' />
             </div>
             <div className='about-episode'>
-                <div className=' center name'>{ep.name}</div>
+                <div className='center name'>{ep.name}</div>
                 <div className='center series'>{ep.series}</div>
                 <div className='plot'>{ep.plot}</div>
                 <div className='premiere'>{ep.premiere}</div>

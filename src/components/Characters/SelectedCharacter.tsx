@@ -21,17 +21,23 @@ export const SelectedCharacter = observer(() => {
             </div>
 
             <p className='about'>{sch.about}</p>
-            <div>
-                <div>
-                    Пол: <GenderCharacter>{sch.gender}</GenderCharacter>
+            <div className='description'>
+                <div className='gender'>
+                    Пол: <br /> <GenderCharacter>{sch.gender}</GenderCharacter>
                 </div>
-                <div>Раса: {sch.race}</div>
-                <Link to={`/locations/${sch.placeOfBirthId}`}>
-                    <div>Место рождения: {sch.placeOfBirth?.name}</div>
-                </Link>
-                <Link to={`/locations/${sch.placeOfBirthId}`}>
-                    <div>Место нахождения: {sch.location?.name}</div>
-                </Link>
+                <div className='race'>
+                    Раса: <br /> {sch.race}
+                </div>
+                <div className='placeOfBirth'>
+                    <Link to={`/locations/${sch.placeOfBirthId}`}>
+                        Место рождения: <br /> {sch.placeOfBirth?.name}
+                    </Link>
+                </div>
+                <div className='location'>
+                    <Link to={`/locations/${sch.placeOfBirthId}`}>
+                        Место нахождения: <br /> {sch.location?.name}
+                    </Link>
+                </div>
             </div>
             <hr />
             <div>
