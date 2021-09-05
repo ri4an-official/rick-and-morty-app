@@ -15,12 +15,12 @@ export const SelectedLocation = observer(() => {
         <div className='selected-location'>
             <img src={loc.imageName} alt='' />
             <div className='name'>{loc.name}</div>
-            <div className='type-location'>{loc.type} * </div>{' '}
+            <div className='type-location'>{loc.type} - </div>{' '}
             <div className='location'>{loc.measurements}</div>
             <div className='about'>{loc.about}</div>
             <h2>Персонажи</h2>
             <div className='characters'>
-                {loc.characters.map((ch) => (
+                {loc.placeOfBirthCharacters.map((ch) => (
                     <Link to={`/characters/${ch.id}`}>
                         <CharacterItem key={ch.id}>{ch}</CharacterItem>
                     </Link>
