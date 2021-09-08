@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
-import charactersIcon from './../assets/svg/charactersIcon.svg'
-import locationIcon from './../assets/svg/locationIcon.svg'
-import episodesIcon from './../assets/svg/episodesIcon.svg'
-import settingsIcon from './../assets/svg/settingsIcon.svg'
+// import charactersIcon from './../assets/svg/charactersIcon.svg'
+// import locationIcon from './../assets/svg/locationIcon.svg'
+// import episodesIcon from './../assets/svg/episodesIcon.svg'
+// import settingsIcon from './../assets/svg/settingsIcon.svg'
 export const NavBar = () => (
     <div className='nav-bar'>
         <Link to='/characters'>
