@@ -1,6 +1,6 @@
 import arrow from './../../../assets/svg/arrow.svg'
 export const ArrowIcon = () => (
-    <span className='icon arrow'>
-        <img src={arrow} alt='arrow' />
+    <span>
+        <img className='arrow-icon' src={arrow} alt='arrow' />
     </span>
 )
