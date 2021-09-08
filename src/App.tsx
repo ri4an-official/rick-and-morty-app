@@ -9,17 +9,20 @@ import { Episodes } from './components/Episodes/Episodes'
 import { SelectedEpisode } from './components/Episodes/SelectedEpisode'
 import { NotFound } from './components/base/NotFound'
 import { NavBar } from './components/NavBar'
+import { Settings } from './components/Settings'
 
 export const App = () => (
     <div className='app'>
         <main className='content'>
             <Switch>
+                <Route exact path='/' component={Characters} />
                 <Route exact path='/characters' component={Characters} />
                 <Route exact path='/characters/:id' component={SelectedCharacter} />
                 <Route exact path='/locations' component={Locations} />
                 <Route exact path='/locations/:id' component={SelectedLocation} />
                 <Route exact path='/episodes' component={Episodes} />
                 <Route exact path='/episodes/:id' component={SelectedEpisode} />
+                <Route exact path='/settings' component={Settings} />
                 <Route exact component={NotFound} />
             </Switch>
         </main>
