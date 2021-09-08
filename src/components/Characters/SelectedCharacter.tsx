@@ -32,15 +32,18 @@ export const SelectedCharacter = observer(() => {
                 <div>
                     Место рождения <br />
                     <Link to={`/locations/${sch.placeOfBirthId}`}>
-                        <div className='placeOfBirth'>{sch.placeOfBirth?.name}</div>
-                        <ArrowIcon />
+                        <div className='placeOfBirth'>
+                            {sch.placeOfBirth?.name}
+                            <ArrowIcon />
+                        </div>
                     </Link>
                 </div>
                 <div>
                     Место нахождения <br />
                     <Link to={`/locations/${sch.locationId}`}>
-                        <div className='location'>{sch.location?.name}</div>
-                        <ArrowIcon />
+                        <div className='location'>
+                            {sch.location?.name} <ArrowIcon />
+                        </div>
                     </Link>
                 </div>
             </div>
@@ -50,10 +53,10 @@ export const SelectedCharacter = observer(() => {
                 <Link to={'/episodes'}>Все эпизоды</Link>
                 <div className='episodes'>
                     {sch.episodes?.map((e) => (
-                        <Link to={`/episodes/${e.id}`}>
-                            <div className='episode-item' key={e.id}>
+                        <Link to={`/episodes/${e.id}`} key={e.id}>
+                            <div className='episode-item'>
                                 <EpisodeItem>{e}</EpisodeItem>
-                                <span></span>
+                                <ArrowIcon />
                             </div>
                         </Link>
                     ))}

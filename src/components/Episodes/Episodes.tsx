@@ -2,22 +2,25 @@ import { observer } from 'mobx-react-lite'
 import { Link } from 'react-router-dom'
 import useAsyncEffect from 'use-async-effect'
 import episodes from '../../models/store/episodes'
-import { Loader } from '../base/Loader'
+import { Search } from '../base/Search'
 import { EpisodeItem } from './EpisodeItem'
 
 export const Episodes = observer(() => {
     useAsyncEffect(async () => {
         await episodes.getAll()
+        await episodes.getTotal()
     }, [episodes])
     return (
         <div>
+            <Search
+                onSubmit={async (query) => await episodes.search({ name: query })}
+                placeholder='Найти эпизод '
+            />
+            <div className='count'>ВСЕГО ЭПИЗОДОВ: {episodes.total}</div>
             <div className='seasons'>
                 {[1, 2, 3, 4, 5].map((s) => (
                     <div
-                        onClick={async () => {
-                            await episodes.getAll()
-                            episodes.filterBySeason(s)
-                        }}
+                        onClick={async () => await episodes.getAll(1, 20, s)}
                         className='season'
                     >
                         {s}

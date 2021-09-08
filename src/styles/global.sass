@@ -29,6 +29,9 @@ html
                 margin-right: auto
                 width: 270px
                 height: 379px
+            .arrow-icon
+                margin-bottom: -8px
+                float: right
             .filter
                 display: flex
                 justify-content: center
@@ -82,13 +85,12 @@ html
                 letter: 1.5px
 
             .characters
-                display: flex
-                flex-wrap: wrap
                 .character-item
-                    margin: 10px
+                    width: 95%
+                    margin: 5px
                     font-size: 14px
                     display: flex
-
+                    align-items: center
                     .ava
                         width: 74px
                         height: 74px
@@ -149,34 +151,28 @@ html
                 .description
                     display: flex
                     flex-wrap: wrap
+                    justify-content: space-around
                     color: $gray2
+                    margin: 10px
+                    *
+                        flex-basis: 50%
                     .gender
-                        width: 50%
                         color: $white
-                        flex: 1
                     .race
-                        width: 50%
                         color: $white
-                        flex: 1
                     .placeOfBirth
-                        width: 100%
-                        flex: 5
                         color: $white
-                        a
-                            display: inline-block
-                            img
-                                float: right
                     .location
-                        width: 100%
-                        flex: 5
                         color: $white
             .episodes
                 .episode-item
-                    margin: 10px
+                    width: 95%
+                    margin: 5px
                     display: flex
-                    img
-                        width: 60px
-                        height: 60px
+                    align-items: center
+                    .logo
+                        width: 74px
+                        height: 74px
                         border-radius: 10%
                         object-fit: cover
                     .about-episode
@@ -185,6 +181,7 @@ html
                         .name
                             font-size: 16px
                         .series
+                            letter-spacing: 1.5px
                             font-size: 10px
                             color: $blue
                         .premiere
@@ -192,6 +189,7 @@ html
                             color: $gray2
             .seasons
                 display: flex
+                margin: 10px
                 .season
                     flex-grow: 1
                     color: $gray2
@@ -203,29 +201,39 @@ html
                         color: $white
                         text-decoration-line: underline
                         text-decoration-color: $white
-
             .selected-episode
-                .name
-                    font-size: 24px
-                .series
-                    margin: 15px
-                    font-size: 10px
-                    color: $blue
-                    &::before
-                        content: 'СЕРИЯ '
-                .premiere
-                    font-size: 14px
-                    color: $gray2
-                    &::before
-                        content: 'Премьера '
-                .plot
-                    font-size: 13px
+                .about-episode
+                    margin: 70px 5px 5px 5px
+                    border-radius: 20%
+                    .name
+                        line-height: 150%
+                        font-size: 24px
+                    .series
+                        margin: 15px
+                        font-size: 10px
+                        letter-spacing: 1.5px
+                        color: $blue
+                        &::before
+                            content: 'СЕРИЯ '
+                    .premiere
+                        margin: 30px 0 30px 0
+                        font-size: 12px
+                        color: $gray2
+                        div
+                            color: white
+                            font-size: 14px
+                    .plot
+                        font-size: 13px
                 .video-player
                     .bg-image
-                        width: 366px
+                        opacity: 0.7
+                        width: 100%
                         height: 274px
                         z-index: -1
                     .player
+                        left: 110px
+                        top: 200px
+                        position: absolute
                         z-index: 2
             .locations
                 display: flex
@@ -280,13 +288,11 @@ html
             position: sticky
             bottom: 0px
             z-index: 99
-            &:first-child
-                fill: $gray2
             a
                 font-size: 12px
                 flex-grow: 1
                 text-decoration: none
-                padding: 5px
+                margin: 5px
                 color: $gray2
                 &:hover
                     *

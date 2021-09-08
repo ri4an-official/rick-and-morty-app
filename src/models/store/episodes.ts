@@ -5,20 +5,23 @@ import { Episode } from '../types/Episode'
 class Episodes {
     list = [] as Episode[]
     selected = {} as Episode
+    total = 0
     constructor() {
         makeAutoObservable(this)
     }
-    async getAll(page = 1, pageSize = 20) {
-        this.list = (await episodes.getAll(page, pageSize)).filter((ep) => ep.series)
+    async getTotal() {
+        this.total = await episodes.getTotal()
+    }
+    async getAll(page = 1, pageSize = 20, season = 1) {
+        this.list = (await episodes.getAll(page, pageSize, season)).filter(
+            (ep) => ep.series
+        )
     }
     async search(options: { name: string }) {
         this.list = await episodes.search({ ...options })
     }
     async getById(id: string) {
         this.selected = await episodes.getById(id)
-    }
-    filterBySeason(season: number) {
-        this.list = this.list.filter((ep) => ep.season === season)
     }
 }
 export default new Episodes()

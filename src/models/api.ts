@@ -13,6 +13,8 @@ export const account = {
 }
 
 export const characters = {
+    getTotal: async () =>
+        (await api.get('/Characters/GetAll')).data.totalRecords as number,
     getAll: async (pageNumber = 1, pageSize = 20) =>
         (await api.get('/Characters/GetAll', { params: { pageNumber, pageSize } })).data
             .data as Character[],
@@ -25,6 +27,8 @@ export const characters = {
 }
 
 export const locations = {
+    getTotal: async () =>
+        (await api.get('/Locations/GetAll')).data.totalRecords as number,
     getAll: async (pageNumber = 1, pageSize = 20) =>
         (await api.get('/Locations/GetAll', { params: { pageNumber, pageSize } })).data
             .data as Location[],
@@ -36,9 +40,14 @@ export const locations = {
 }
 
 export const episodes = {
-    getAll: async (pageNumber = 1, pageSize = 20) =>
-        (await api.get('/Episodes/GetAll', { params: { pageNumber, pageSize } })).data
-            .data as Episode[],
+    getTotal: async () =>
+        (await api.get('/Episodes/GetAll')).data.totalRecords as number,
+    getAll: async (pageNumber = 1, pageSize = 20, season = 1) =>
+        (
+            await api.get('/Episodes/GetAll', {
+                params: { pageNumber, pageSize, season },
+            })
+        ).data.data as Episode[],
     getById: async (id: string) =>
         (await api.get('/Episodes/GetById', { params: { id } })).data.data as Episode,
     search: async (options: { name: string }) =>

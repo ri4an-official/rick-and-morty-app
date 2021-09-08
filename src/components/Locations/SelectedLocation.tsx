@@ -2,6 +2,7 @@ import { observer } from 'mobx-react-lite'
 import { Link, useParams } from 'react-router-dom'
 import useAsyncEffect from 'use-async-effect'
 import locations from '../../models/store/locations'
+import { ArrowIcon } from '../base/icons/ArrowIcon'
 import { Loader } from '../base/Loader'
 import { CharacterItem } from '../Characters/CharacterItem'
 
@@ -21,8 +22,11 @@ export const SelectedLocation = observer(() => {
             <h2>Персонажи</h2>
             <div className='characters'>
                 {loc.placeOfBirthCharacters.map((ch) => (
-                    <Link to={`/characters/${ch.id}`}>
-                        <CharacterItem key={ch.id}>{ch}</CharacterItem>
+                    <Link to={`/characters/${ch.id}`} key={ch.id}>
+                        <div className='character-item'>
+                            <CharacterItem key={ch.id}>{ch}</CharacterItem>
+                            <ArrowIcon />
+                        </div>
                     </Link>
                 ))}
             </div>

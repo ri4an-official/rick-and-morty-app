@@ -5,8 +5,12 @@ import { Location } from '../types/Location'
 class Locations {
     list = [] as Location[]
     selected = {} as Location
+    total = 0
     constructor() {
         makeAutoObservable(this)
+    }
+    async getTotal() {
+        this.total = await locations.getTotal()
     }
     async getAll(page = 1, pageSize = 20) {
         this.list = await locations.getAll(page, pageSize)
