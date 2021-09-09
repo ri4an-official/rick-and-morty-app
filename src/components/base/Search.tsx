@@ -1,19 +1,19 @@
 import search from './../../assets/svg/search.svg'
 import filter from './../../assets/svg/filter.svg'
-import { useState } from 'react'
+import { useInput } from './hooks/useInput'
 export const Search = (props: {
     placeholder: string
     onSubmit: (query: string) => Promise<any>
 }) => {
     // TODO - add filter
-    const [query, setQuery] = useState('')
+    const input = useInput('')
     return (
         <div className='filter'>
             <img className='seacrh-icon' src={search} alt='search' />
             <input
-                onChange={(e) => setQuery(e.currentTarget.value)}
+                {...input}
                 onKeyPress={async (e) =>
-                    e.key === 'Enter' && (await props.onSubmit(query))
+                    e.key === 'Enter' && (await props.onSubmit(input.value))
                 }
                 placeholder={props.placeholder}
             />
