@@ -7,9 +7,13 @@ import { Location } from './types/Location'
 const api = axios.create({ baseURL: 'http://173.249.20.184:7001/api' })
 
 export const account = {
-    login: (user: { userName: string; password: string }) =>
-        api.post('/Account/Login', { ...user }),
-    register: (user: Account) => api.post('/Account/Register', { ...user }),
+    login: async (user: { userName: string; password: string }) =>
+        (await api.post('/Account/Login', { ...user })).data,
+    register: async (user: Account) =>
+        (await api.post('/Account/Register', { ...user })).data,
+    get: async (userName: string) =>
+        (await api.get('/Account/GetProfile', { params: { userName } })).data
+            .data as Account,
 }
 
 export const characters = {
