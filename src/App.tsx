@@ -1,5 +1,4 @@
 import './styles/global.sass'
-// import title from './assets/svg/title.svg'
 import { Route, Switch } from 'react-router-dom'
 import { Characters } from './components/Characters/Characters'
 import { SelectedCharacter } from './components/Characters/SelectedCharacter'
@@ -10,6 +9,8 @@ import { SelectedEpisode } from './components/Episodes/SelectedEpisode'
 import { NotFound } from './components/base/NotFound'
 import { NavBar } from './components/NavBar'
 import { Settings } from './components/Settings'
+import { Login } from './components/Login'
+import { Register } from './components/Register'
 
 export const App = () => (
     <div className='app'>
@@ -23,6 +24,8 @@ export const App = () => (
                 <Route exact path='/episodes' component={Episodes} />
                 <Route exact path='/episodes/:id' component={SelectedEpisode} />
                 <Route exact path='/settings' component={Settings} />
+                <Route exact path='/login' component={Login} />
+                <Route exact path='/register' component={Register} />
                 <Route exact component={NotFound} />
             </Switch>
         </main>
