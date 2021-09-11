@@ -13,7 +13,7 @@ class Locations {
         this.total = await locations.getTotal()
     }
     async getAll(page = 1, pageSize = 20) {
-        this.list = await locations.getAll(page, pageSize)
+        this.list = [...this.list, ...(await locations.getAll(page, pageSize))]
     }
     async search(options: { name: string; type: string; measurements: string }) {
         this.list = await locations.search({ ...options })
