@@ -9,7 +9,7 @@ export const Episodes = observer(() => {
     useAsyncEffect(async () => {
         await episodes.getAll()
         await episodes.getTotal()
-    }, [episodes])
+    }, [])
     return (
         <div>
             <Search
