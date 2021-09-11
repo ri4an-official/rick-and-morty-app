@@ -4,11 +4,30 @@ import useAsyncEffect from 'use-async-effect'
 import characters from '../../models/store/characters'
 import { CharacterItem } from './CharacterItem'
 import { Search } from '../base/Search'
+import { useEffect, useState } from 'react'
 export const Characters = observer(() => {
+    const [currentPage, setCurrentPage] = useState(1)
+    const [fetching, setFetching] = useState(true)
     useAsyncEffect(async () => {
-        await characters.getAll()
+        if (fetching) {
+            await characters.getAll(currentPage, 20).finally(() => setFetching(false))
+            setCurrentPage((cp) => cp + 1)
+        }
         await characters.getTotal()
-    }, [characters])
+    }, [fetching])
+    useEffect(() => {
+        document.addEventListener('scroll', scrollHandler)
+        return () => document.removeEventListener('scroll', scrollHandler)
+    }, [])
+    const scrollHandler = (e: any) => {
+        if (
+            e.target.documentElement.scrollHeight -
+                (e.target.documentElement.scrollTop + window.innerHeight) <
+                100 &&
+            characters.list.length < characters.total
+        )
+            setFetching(true)
+    }
 
     return (
         <>
@@ -18,7 +37,6 @@ export const Characters = observer(() => {
                 }
                 placeholder='Найти персонажа'
             />
-            {/* FIXME - fix total */}
             <div className='count'>ВСЕГО ПЕРСОНАЖЕЙ: {characters.total}</div>
             <div className='characters'>
                 {characters.list.map((ch) => (
