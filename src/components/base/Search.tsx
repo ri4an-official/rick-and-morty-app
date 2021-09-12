@@ -5,7 +5,7 @@ export const Search = (props: {
     placeholder: string
     onSubmit: (query: string) => Promise<any>
 }) => {
-    // TODO - add filter
+    // TODO- add filter
     const input = useInput('')
     return (
         <div className='filter'>
