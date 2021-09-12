@@ -10,8 +10,8 @@ export const Characters = observer(() => {
     const [fetching, setFetching] = useState(true)
     useAsyncEffect(async () => {
         if (fetching) {
-            await characters.getAll(currentPage, 20).finally(() => setFetching(false))
-            setCurrentPage((cp) => cp + 1)
+            await characters.getAll(currentPage).finally(() => setFetching(false))
+            setCurrentPage(currentPage + 1)
         }
         await characters.getTotal()
     }, [fetching])
