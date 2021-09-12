@@ -22,6 +22,7 @@ export const Episodes = observer(() => {
                     <div
                         onClick={async () => await episodes.getAll(1, 20, s)}
                         className='season'
+                        tabIndex={s}
                     >
                         {s}
                     </div>
