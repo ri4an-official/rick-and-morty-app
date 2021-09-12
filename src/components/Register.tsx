@@ -42,7 +42,7 @@ export const Register = observer(() => {
                             lastName: lastName.value,
                             patronymic: patronymic.value,
                         })
-                        if (!user.error) history.push('/')
+                        if (!user.error) history.push('/settings')
                     }}
                 >
                     Создать

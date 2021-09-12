@@ -33,7 +33,7 @@ export const Login = observer(() => {
                                 userName: userName.value,
                                 password: password.value,
                             })
-                            history.push('/')
+                            history.push('/settings')
                         }
                     }}
                 >
