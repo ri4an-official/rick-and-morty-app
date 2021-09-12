@@ -3,9 +3,9 @@ import { Link, useParams } from 'react-router-dom'
 import useAsyncEffect from 'use-async-effect'
 import characters from '../../models/store/characters'
 import { GenderCharacter, StatusCharacter } from './CharacterItem'
-import { Loader } from '../base/Loader'
+import { Loader } from '../common/Loader'
 import { EpisodeItem } from '../Episodes/EpisodeItem'
-import { ArrowIcon } from '../base/icons/ArrowIcon'
+import { ArrowIcon } from '../common/icons/ArrowIcon'
 export const SelectedCharacter = observer(() => {
     const id = useParams<{ id: string }>().id
     useAsyncEffect(async () => {

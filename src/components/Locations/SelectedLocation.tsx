@@ -2,9 +2,9 @@ import { observer } from 'mobx-react-lite'
 import { Link, useParams } from 'react-router-dom'
 import useAsyncEffect from 'use-async-effect'
 import locations from '../../models/store/locations'
-import { ArrowIcon } from '../base/icons/ArrowIcon'
-import { NoImageIcon } from '../base/icons/NoImageIcon'
-import { Loader } from '../base/Loader'
+import { ArrowIcon } from '../common/icons/ArrowIcon'
+import { NoImageIcon } from '../common/icons/NoImageIcon'
+import { Loader } from '../common/Loader'
 import { CharacterItem } from '../Characters/CharacterItem'
 
 export const SelectedLocation = observer(() => {

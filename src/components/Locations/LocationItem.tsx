@@ -1,6 +1,6 @@
 import { Location } from '../../models/types/Location'
-import { NoImageIcon } from '../base/icons/NoImageIcon'
-import { PointIcon } from '../base/icons/PointIcon'
+import { NoImageIcon } from '../common/icons/NoImageIcon'
+import { PointIcon } from '../common/icons/PointIcon'
 
 export const LocationItem = ({ children }: { children: Location }) => (
     <div className='location-item'>

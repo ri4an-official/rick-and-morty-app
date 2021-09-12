@@ -1,9 +1,9 @@
 import { observer } from 'mobx-react-lite'
 import user from '../models/store/user'
-import { withAuth } from './base/hocs/withAuth'
+import { withAuth } from './common/hocs/withAuth'
 import defaultAva from './../assets/svg/default-avatar.svg'
 import pallete from './../assets/svg/color-pallete.svg'
-import { ArrowIcon } from './base/icons/ArrowIcon'
+import { ArrowIcon } from './common/icons/ArrowIcon'
 // TODO- add theme, edit profile
 export const Settings = observer(
     withAuth(() => (

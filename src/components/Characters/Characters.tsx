@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import useAsyncEffect from 'use-async-effect'
 import characters from '../../models/store/characters'
 import { CharacterItem } from './CharacterItem'
-import { Search } from '../base/Search'
+import { Search } from '../common/Search'
 import { useEffect, useState } from 'react'
 export const Characters = observer(() => {
     const [currentPage, setCurrentPage] = useState(1)

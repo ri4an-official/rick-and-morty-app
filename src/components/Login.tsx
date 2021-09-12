@@ -3,7 +3,7 @@ import title from './../assets/svg/title.svg'
 import un from './../assets/svg/userName.svg'
 import passwordIcon from './../assets/svg/password.svg'
 // import eye from './../assets/svg/eye.svg'
-import { useInput } from './base/hooks/useInput'
+import { useInput } from './common/hooks/useInput'
 import user from '../models/store/user'
 import { observer } from 'mobx-react-lite'
 export const Login = observer(() => {
