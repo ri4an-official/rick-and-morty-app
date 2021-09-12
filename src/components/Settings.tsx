@@ -4,6 +4,7 @@ import { withAuth } from './base/hocs/withAuth'
 import defaultAva from './../assets/svg/default-avatar.svg'
 import pallete from './../assets/svg/color-pallete.svg'
 import { ArrowIcon } from './base/icons/ArrowIcon'
+// TODO- add theme, edit profile
 export const Settings = observer(
     withAuth(() => (
         <div className='settings'>
@@ -18,9 +19,9 @@ export const Settings = observer(
                 <button className='edit'>Редактировать</button>
             </div>
             <hr />
-            <div className='pallete'>ВНЕШНИЙ ВИД</div>
+            <div className='pallete-label'>ВНЕШНИЙ ВИД</div>
             <div className='theme'>
-                <img src={pallete} alt='' />
+                <img className='pallete' src={pallete} alt='' />
                 <div className='about'>
                     <div className='name'>Темная тема</div>
                     <div className='status'>Включена</div>
