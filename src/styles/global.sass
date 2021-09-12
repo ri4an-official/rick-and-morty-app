@@ -1,11 +1,10 @@
 @import colors
-@import svg
 @import default
 
 html
     background-color: $bgColor
     color: $white
-    max-width: 380px
+    max-width: 375px
     font-family: Arial, Helvetica, sans-serif
     font-weight: 400
     line-height: 19.5px
@@ -23,8 +22,7 @@ html
         color: $white
     .app
         .content
-            margin: 7px
-            @import loader
+            margin: 10px
             .title
                 display: flex
                 margin-left: auto
@@ -32,6 +30,8 @@ html
                 width: 270px
                 height: 379px
             .arrow-icon
+                width: 24px
+                height: 24px
                 margin-bottom: -8px
                 float: right
             .filter
@@ -54,12 +54,11 @@ html
                     top: 20px
                     width: 24px
                     height: 24px
-                    &:checked
 
                 input
                     padding-left: 40px
                     font-size: 16px
-                    width: 80%
+                    width: 85%
                     height: 48px
                     border-radius: 20px
                     border: none
@@ -76,8 +75,6 @@ html
                     border-left: 1px solid #FFFFFF1A
                     height: 25px
                     width: 1px
-            .set-filter
-
             .login
                 text-align: center
                 .signin
@@ -163,9 +160,9 @@ html
                         width: 65%
                         padding-left: 80px
                     #loginIcon
-                        bottom: 90px
+                        bottom: 160px
                     #passwordIcon
-                        bottom: -5px
+                        bottom: 65px
                     button
                         font-size: 16px
                         line-height: 24px
@@ -183,11 +180,10 @@ html
                 color: $gray2
                 line-height: 16px
                 letter: 1.5px
-
             .characters
                 .character-item
                     width: 95%
-                    margin: 5px
+                    margin: 2px
                     font-size: 14px
                     display: flex
                     align-items: center
@@ -203,6 +199,8 @@ html
                             margin: 3px
                         .name
                             font-size: 16px
+                            line-height: 24px
+                            letter-spacing: 0.5px
                         .alive
                             color: $green
                         .dead
@@ -210,10 +208,13 @@ html
                         .uknown
                             color: $gray2
                         .alive,.dead,.uknown
+                            letter-spacing: 1.5px
                             font-size: 10px
                         .gender,.race
                             font-size: 12px
                             color: $gray2
+                            line-height: 16px
+                            letter-spacing: 0.5px
             .selected-character
                 font-size: 13px
                 .ava
@@ -226,6 +227,7 @@ html
                     border: 7px solid
                     border-color: $bgColor
                 .bg-image
+                    margin: 0px
                     width: 100%
                     height: 218px
                     filter: blur(3px)
@@ -241,6 +243,7 @@ html
                 .uknown
                     color: $gray2
                 .alive,.dead,.uknown
+                    letter-spacing: 1.5px
                     margin: 12px
                     font-size: 10px
                 .gender,.race
@@ -253,7 +256,6 @@ html
                     flex-wrap: wrap
                     justify-content: space-around
                     color: $gray2
-                    margin: 10px
                     *
                         flex-basis: 50%
                     .gender
@@ -261,8 +263,10 @@ html
                     .race
                         color: $white
                     .placeOfBirth
+                        width: 360px
                         color: $white
                     .location
+                        width: 360px
                         color: $white
             .episodes
                 .episode-item
@@ -279,12 +283,14 @@ html
                         *
                             margin: 1px 10px 2px 10px
                         .name
+                            letter-spacing: 0.5px
                             font-size: 16px
                         .series
                             letter-spacing: 1.5px
                             font-size: 10px
                             color: $blue
                         .premiere
+                            letter-spacing: 0.25px
                             font-size: 14px
                             color: $gray2
             .seasons
@@ -297,7 +303,7 @@ html
                     font-size: 14px
                     &::before
                         content: 'СЕЗОН '
-                    &:active
+                    &:focus
                         color: $white
                         text-decoration-line: underline
                         text-decoration-color: $white
@@ -346,23 +352,35 @@ html
                     $br: 10%
                     border-radius: $br
                     width: 340px
-                    height: 238px
+                    height: 278px
                     max-height: 280px
                     display: flex
                     flex-wrap: wrap
-                    img
+                    img,svg
                         border-top-left-radius: $br
                         border-top-right-radius: $br
                         width: 100%
-                        height: 70%
-                    *:not(img)
-                        margin: 8px
-                    .name
-                        width: 100%
-                        font-size: 20px
-                    .location,.type-location
-                        color: $gray2
-                        font-size: 12px
+                        height: 72%
+                        fill: white
+                    .container
+                        display: flex
+                        flex-wrap: wrap
+                        padding: 10px
+                        svg.point
+                            margin: 4px
+                            width: 2px
+                            height: 2px
+                        .name
+                            width: 100%
+                            font-size: 20px
+                            line-height: 22px
+                            letter-spacing: 0.15px
+                        .location,.type-location
+                            color: $gray2
+                            font-size: 12px
+                            letter-spacing: 0.5px
+                            line-height: 16px
+
             .selected-location
                 .name
                     font-size: 24px
@@ -377,11 +395,12 @@ html
                 .about
                     font-size: 13px
                     margin-bottom: 45px
-                img
+                img,svg
+                    fill: white
                     width: 100%
             .settings
                 *
-                    margin: 15px
+                    margin: 10px
                 .profile
                     display: flex
                     align-items: center
@@ -406,8 +425,7 @@ html
                     line-height: 24px
                     letter-spacing: 0.15px
                     height: 40px
-
-                .pallete,.about,.version
+                .pallete-label,.about,.version
                     color: $gray2
                     font-size: 10px
                     font-weight: 500
@@ -415,12 +433,14 @@ html
                     letter-spacing: 1.5px
                 .theme
                     display: flex
-                    img
+                    align-items: center
+                    // TAG- maybe don't work
+                    .pallete
                         width: 36px
                         height: 36px
                     .about
-                        width: 90%
                         align-items: center
+                        width: 100%
                         .name
                             color: white
                             font-size: 16px
@@ -431,22 +451,27 @@ html
                     font-size: 13px
                     line-height: 20px
                     letter-spacing: 0.25px
-
+        // FIXME- fix navbar position on render
         .nav-bar
-            width: 380px
+            width: 100%
+            min-width: 375px
             background-color: $bgColor2
             display: flex
             text-align: center
             position: sticky
-            bottom: 0px
-            z-index: 99
+            bottom: 0
             a
                 font-size: 12px
                 flex-grow: 1
                 text-decoration: none
                 margin: 5px
                 color: $gray2
-                &:hover
+                &:focus
                     *
+                        stroke: $green
+                        color: $green
+                &:first-child:focus
+                    *
+                        stroke: none
                         fill: $green
                         color: $green
