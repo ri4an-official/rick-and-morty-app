@@ -27,16 +27,20 @@ export const SelectedEpisode = observer(() => {
                 </div>
                 <hr />
                 <h2>Персонажи</h2>
-                <div className='characters'>
-                    {ep.characters?.map((ch) => (
-                        <Link to={`/characters/${ch.id}`} key={ch.id}>
-                            <div className='character-item'>
-                                <CharacterItem key={ch.id}>{ch}</CharacterItem>
-                                <ArrowIcon />
-                            </div>
-                        </Link>
-                    ))}
-                </div>
+                {ep.characters?.length ? (
+                    <div className='characters'>
+                        {ep.characters?.map((ch) => (
+                            <Link to={`/characters/${ch.id}`} key={ch.id}>
+                                <div className='character-item'>
+                                    <CharacterItem key={ch.id}>{ch}</CharacterItem>
+                                    <ArrowIcon />
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
+                ) : (
+                    <h2>Нет персонажей</h2>
+                )}
             </div>
         </div>
     ) : (
