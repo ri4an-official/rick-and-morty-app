@@ -13,7 +13,9 @@ class Locations {
         this.total = await locations.getTotal()
     }
     async getAll(page = 1, pageSize = 20) {
-        this.list = [...this.list, ...(await locations.getAll(page, pageSize))]
+        this.list = (await locations.getAll(page, pageSize)).filter(
+            (l) => l.type !== 'string'
+        )
     }
     async search(options: { name: string; type: string; measurements: string }) {
         this.list = await locations.search({ ...options })
