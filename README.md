@@ -1,7 +1,5 @@
 # Rick And Morty App
 
-## [@SimpleCode](https://simplecode.kz/)
-
 ![Rick And Morty App](src/assets/images/screen1.png)
 ![Rick And Morty App](src/assets/images/screen2.png)
 ![Rick And Morty App](src/assets/images/screen3.png)
