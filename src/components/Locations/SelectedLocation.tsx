@@ -17,14 +17,14 @@ export const SelectedLocation = observer(() => {
     return locations.selected.id === id ? (
         <div className='selected-location'>
             {loc.imageName ? (
-                <img className='ava' src={loc.imageName} alt='' />
+                <img className='bg-image' src={loc.imageName} alt='' />
             ) : (
                 <NoImageIcon />
             )}
             <div className='name'>{loc.name || '???'}</div>
             <div className='type-location'>
-                {loc.type || '???'} <PointIcon />{' '}
-            </div>
+                {loc.type || '???'} <PointIcon />
+            </div>{' '}
             <div className='location'>{loc.measurements || '???'}</div>
             <div className='about'>{loc.about || '???'}</div>
             <h2>Персонажи</h2>

@@ -4,7 +4,11 @@ import { PointIcon } from '../../common/icons/PointIcon'
 
 export const LocationItem = ({ children }: { children: Location }) => (
     <div className='location-item'>
-        {children.imageName ? <img src={children.imageName} alt='' /> : <NoImageIcon />}
+        {children.imageName ? (
+            <img className='ava' src={children.imageName} alt='' />
+        ) : (
+            <NoImageIcon />
+        )}
         <div className='container'>
             <div className='name'>{children.name || '???'}</div>
             <div className='type-location'>

@@ -36,6 +36,7 @@ html
                 width: 270px
                 height: 379px
             .point
+                display: inline-block
                 margin: 4px
                 width: 2px
                 height: 2px
@@ -370,7 +371,7 @@ html
                     max-height: 280px
                     display: flex
                     flex-wrap: wrap
-                    img,svg
+                    .ava,svg.no-image
                         border-top-left-radius: $br
                         border-top-right-radius: $br
                         width: 100%
@@ -379,11 +380,12 @@ html
                     .container
                         display: flex
                         flex-wrap: wrap
-                        padding: 10px
+                        padding-left: 10px
+                        padding-bottom: 10px
                         .name
                             width: 100%
                             font-size: 20px
-                            line-height: 22px
+                            line-height: 28px
                             letter-spacing: 0.15px
                         .location,.type-location
                             color: $gray2
@@ -404,9 +406,10 @@ html
                 .about
                     font-size: 13px
                     margin-bottom: 45px
-                .ava,svg
+                .bg-image,.no-image
+                    margin: -10px
                     fill: white
-                    width: 100%
+                    width: 106%
             .settings
                 *
                     margin: 10px
