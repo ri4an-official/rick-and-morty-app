@@ -6,6 +6,7 @@ import { ArrowIcon } from '../../common/icons/ArrowIcon'
 import { NoImageIcon } from '../../common/icons/NoImageIcon'
 import { Loader } from '../../common/Loader'
 import { CharacterItem } from '../Characters/CharacterItem'
+import { PointIcon } from '../../common/icons/PointIcon'
 
 export const SelectedLocation = observer(() => {
     const id = useParams<{ id: string }>().id
@@ -21,7 +22,9 @@ export const SelectedLocation = observer(() => {
                 <NoImageIcon />
             )}
             <div className='name'>{loc.name || '???'}</div>
-            <div className='type-location'>{loc.type || '???'} - </div>{' '}
+            <div className='type-location'>
+                {loc.type || '???'} <PointIcon />{' '}
+            </div>
             <div className='location'>{loc.measurements || '???'}</div>
             <div className='about'>{loc.about || '???'}</div>
             <h2>Персонажи</h2>
