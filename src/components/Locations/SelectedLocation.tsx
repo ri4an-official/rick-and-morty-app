@@ -2,9 +2,9 @@ import { observer } from 'mobx-react-lite'
 import { Link, useParams } from 'react-router-dom'
 import useAsyncEffect from 'use-async-effect'
 import locations from '../../models/store/locations'
-import { ArrowIcon } from '../common/icons/ArrowIcon'
-import { NoImageIcon } from '../common/icons/NoImageIcon'
-import { Loader } from '../common/Loader'
+import { ArrowIcon } from '../../common/icons/ArrowIcon'
+import { NoImageIcon } from '../../common/icons/NoImageIcon'
+import { Loader } from '../../common/Loader'
 import { CharacterItem } from '../Characters/CharacterItem'
 
 export const SelectedLocation = observer(() => {
@@ -15,7 +15,11 @@ export const SelectedLocation = observer(() => {
     const loc = locations.selected
     return locations.selected.id === id ? (
         <div className='selected-location'>
-            {loc.imageName ? <img src={loc.imageName} alt='' /> : <NoImageIcon />}
+            {loc.imageName ? (
+                <img className='ava' src={loc.imageName} alt='' />
+            ) : (
+                <NoImageIcon />
+            )}
             <div className='name'>{loc.name || '???'}</div>
             <div className='type-location'>{loc.type || '???'} - </div>{' '}
             <div className='location'>{loc.measurements || '???'}</div>
