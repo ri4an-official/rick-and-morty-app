@@ -2,7 +2,7 @@ import { observer } from 'mobx-react-lite'
 import { Link } from 'react-router-dom'
 import useAsyncEffect from 'use-async-effect'
 import episodes from '../../models/store/episodes'
-import { Search } from '../common/Search'
+import { Search } from '../../common/Search'
 import { EpisodeItem } from './EpisodeItem'
 
 export const Episodes = observer(() => {
