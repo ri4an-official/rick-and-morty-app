@@ -11,16 +11,24 @@ class User {
         makeAutoObservable(this)
     }
     async login(user: { userName: string; password: string }) {
-        const res = await account.login({ ...user })
-        if (res.succeeded) {
-            this.auth = true
-            this.token = res.data.token
-            this.current = await account.get(user.userName)
-        } else this.error = res.Message
+        account
+            .login({ ...user })
+            .then((res) => {
+                if (res.succeeded) {
+                    this.error = ''
+                    this.auth = true
+                    this.token = res.data.token
+                }
+            })
+            .catch(({ response }) => {
+                this.error = response.data.Message
+                console.log(response.data)
+            })
+        if (!this.error) this.current = await account.get(user.userName)
     }
     async register(user: Account) {
         const res = await account.register({ ...user })
-        if (!res.message) {
+        if (!res.Message) {
             this.login({ userName: user.userName, password: user.password })
         }
     }
