@@ -1,9 +1,10 @@
 import { observer } from 'mobx-react-lite'
 import user from '../models/store/user'
-import { withAuth } from './common/hocs/withAuth'
+import { withAuth } from '../common/hocs/withAuth'
 import defaultAva from './../assets/svg/default-avatar.svg'
 import pallete from './../assets/svg/color-pallete.svg'
-import { ArrowIcon } from './common/icons/ArrowIcon'
+import { ArrowIcon } from '../common/icons/ArrowIcon'
+import { version } from '../common/version/index.json'
 // TODO- add theme, edit profile
 export const Settings = observer(
     withAuth(() => (
@@ -36,7 +37,7 @@ export const Settings = observer(
             </p>
             <hr />
             <div className='version'>ВЕРСИЯ ПРИЛОЖЕНИЯ</div>
-            <p className='version-value'>Rick & Morty v1.0.0</p>
+            <p className='version-value'>Rick & Morty v{version}</p>
         </div>
     ))
 )
