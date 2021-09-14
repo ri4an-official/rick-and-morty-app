@@ -3,9 +3,9 @@ import { Link, useParams } from 'react-router-dom'
 import useAsyncEffect from 'use-async-effect'
 import characters from '../../models/store/characters'
 import { GenderCharacter, StatusCharacter } from './CharacterItem'
-import { Loader } from '../common/Loader'
+import { Loader } from '../../common/Loader'
 import { EpisodeItem } from '../Episodes/EpisodeItem'
-import { ArrowIcon } from '../common/icons/ArrowIcon'
+import { ArrowIcon } from '../../common/icons/ArrowIcon'
 export const SelectedCharacter = observer(() => {
     const id = useParams<{ id: string }>().id
     useAsyncEffect(async () => {
@@ -24,28 +24,27 @@ export const SelectedCharacter = observer(() => {
             <p className='about'>{sch.about}</p>
             <div className='description'>
                 <div>
-                    Пол <br /> <GenderCharacter>{sch.gender}</GenderCharacter>
+                    Пол <br />
+                    <div>
+                        <GenderCharacter>{sch.gender}</GenderCharacter>
+                    </div>
                 </div>
                 <div>
                     Раса <br /> <div className='race'>{sch.race}</div>
                 </div>
-                <div>
+                <Link to={`/locations/${sch.placeOfBirthId}`}>
                     Место рождения <br />
-                    <Link to={`/locations/${sch.placeOfBirthId}`}>
-                        <div className='placeOfBirth'>
-                            {sch.placeOfBirth?.name}
-                            <ArrowIcon />
-                        </div>
-                    </Link>
-                </div>
-                <div>
+                    <div className='placeOfBirth'>
+                        {sch.placeOfBirth?.name}
+                        <ArrowIcon />
+                    </div>
+                </Link>
+                <Link to={`/locations/${sch.locationId}`}>
                     Место нахождения <br />
-                    <Link to={`/locations/${sch.locationId}`}>
-                        <div className='location'>
-                            {sch.location?.name} <ArrowIcon />
-                        </div>
-                    </Link>
-                </div>
+                    <div className='location'>
+                        {sch.location?.name} <ArrowIcon />
+                    </div>
+                </Link>
             </div>
             <hr />
             <div>

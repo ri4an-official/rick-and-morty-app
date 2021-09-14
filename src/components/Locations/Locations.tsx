@@ -2,8 +2,8 @@ import { observer } from 'mobx-react-lite'
 import { Link } from 'react-router-dom'
 import useAsyncEffect from 'use-async-effect'
 import locations from '../../models/store/locations'
-import { Loader } from '../common/Loader'
-import { Search } from '../common/Search'
+import { Loader } from '../../common/Loader'
+import { Search } from '../../common/Search'
 import { LocationItem } from './LocationItem'
 
 export const Locations = observer(() => {

@@ -1,5 +1,5 @@
-import search from './../../assets/svg/search.svg'
-import filter from './../../assets/svg/filter.svg'
+import search from './../assets/svg/search.svg'
+import filter from './../assets/svg/filter.svg'
 import { useInput } from './hooks/useInput'
 export const Search = (props: {
     placeholder: string

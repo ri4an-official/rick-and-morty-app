@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite'
 import un from './../assets/svg/userName.svg'
 import passwordIcon from './../assets/svg/password.svg'
-import { useInput } from './common/hooks/useInput'
+import { useInput } from '../common/hooks/useInput'
 import user from '../models/store/user'
 import { useHistory } from 'react-router'
 export const Register = observer(() => {
