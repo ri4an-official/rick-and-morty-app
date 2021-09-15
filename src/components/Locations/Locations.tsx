@@ -10,7 +10,7 @@ export const Locations = observer(() => {
     useAsyncEffect(async () => {
         await locations.getAll()
         await locations.getTotal()
-    }, [locations.list.length])
+    }, [])
     return locations.list.length ? (
         <div>
             <Search
