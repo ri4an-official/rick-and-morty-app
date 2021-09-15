@@ -6,6 +6,7 @@ import passwordIcon from './../assets/svg/password.svg'
 import { useInput } from '../common/hooks/useInput'
 import user from '../models/store/user'
 import { observer } from 'mobx-react-lite'
+import { Modal } from './Modal'
 export const Login = observer(() => {
     const userName = useInput()
     const password = useInput()
@@ -34,7 +35,13 @@ export const Login = observer(() => {
                 >
                     Войти
                 </button>
-                {user.error && <div className='error'>{user.error}</div>}
+                {/* {user.error && <div className='error'>{user.error}</div>} */}
+                <Modal
+                    visible={!!user.error}
+                    onClose={() => (user.error = '')}
+                    content={user.error}
+                    title='Ошибка'
+                />
                 <p className='question'>
                     У вас еще нет аккаунта? <Link to='/register'>Создать</Link>
                 </p>
