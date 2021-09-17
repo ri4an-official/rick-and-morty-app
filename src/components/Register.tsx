@@ -6,28 +6,42 @@ import user from '../models/store/user'
 import { useHistory } from 'react-router'
 export const Register = observer(() => {
     const history = useHistory()
-    const firstName = useInput()
-    const lastName = useInput()
+    const firstName = useInput(true)
+    const lastName = useInput(true)
     const patronymic = useInput()
-    const login = useInput()
-    const password = useInput()
+    const login = useInput(true)
+    const password = useInput(true)
     return (
         <div className='register'>
             <h1>Создать аккаунт</h1>
             <div className='name'>Имя</div>
-            <input {...firstName} placeholder='Имя' />
+            <input
+                className={firstName.isError ? 'error' : ''}
+                {...firstName}
+                placeholder='Имя'
+            />
             <div className='name'>Фамилия</div>
-            <input {...lastName} placeholder='Фамилия' />
+            <input
+                className={lastName.isError ? 'error' : ''}
+                {...lastName}
+                placeholder='Фамилия'
+            />
             <div className='name'>Отчество</div>
             <input {...patronymic} placeholder='Отчество' />
             <hr />
             <div className='signin'>
                 <div className='name'>Логин</div>
                 <img id='loginIcon' src={un} alt='' />
-                <input {...login} id='login' placeholder='Логин' />
+                <input
+                    className={login.isError ? 'error' : ''}
+                    {...login}
+                    id='login'
+                    placeholder='Логин'
+                />
                 <div className='name'>Пароль</div>
                 <img id='passwordIcon' src={passwordIcon} alt='' />
                 <input
+                    className={password.isError ? 'error' : ''}
                     {...password}
                     id='password'
                     placeholder='Пароль'

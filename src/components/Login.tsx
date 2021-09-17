@@ -8,8 +8,8 @@ import user from '../models/store/user'
 import { observer } from 'mobx-react-lite'
 import { Modal } from './Modal'
 export const Login = observer(() => {
-    const userName = useInput()
-    const password = useInput()
+    const userName = useInput(true)
+    const password = useInput(true)
     return !user.auth ? (
         <div className='login'>
             <img className='title' src={title} alt='' />
@@ -17,12 +17,23 @@ export const Login = observer(() => {
                 <div className='name'>
                     <p>Логин</p>
                     <img src={un} alt='' />
-                    <input {...userName} placeholder='Логин' />
+                    <input
+                        className={userName.isError ? 'error' : ''}
+                        {...userName}
+                        placeholder='Логин'
+                        autoComplete='false'
+                    />
                 </div>
                 <div className='password'>
                     <p>Пароль</p>
                     <img src={passwordIcon} alt='' />
-                    <input {...password} placeholder='Пароль' type='password' />
+                    <input
+                        className={password.isError ? 'error' : ''}
+                        {...password}
+                        placeholder='Пароль'
+                        type='password'
+                        autoComplete='off'
+                    />
                     {/* <img className='eye' src={eye} alt='' /> */}
                 </div>
                 <button
@@ -39,8 +50,15 @@ export const Login = observer(() => {
                 <Modal
                     visible={!!user.error}
                     onClose={() => (user.error = '')}
-                    content={user.error}
-                    title='Ошибка'
+                    Content={({ onClose }) => (
+                        <>
+                            <div className='content-modal'>{user.error}</div>
+                            <button onClick={onClose} className='btn-close'>
+                                OK
+                            </button>
+                        </>
+                    )}
+                    title='Error'
                 />
                 <p className='question'>
                     У вас еще нет аккаунта? <Link to='/register'>Создать</Link>
