@@ -25,7 +25,7 @@ html
             padding: 10px
             @import loader
             .modal
-                padding: 40px
+                padding: 30px
                 position: fixed
                 top: 0
                 bottom: 0
@@ -38,10 +38,10 @@ html
                 justify-content: center
                 background-color: rgba(0, 0, 0, 0.25)
                 animation-name: appear
-                animation-duration: 300ms
+                animation-duration: 100ms
                 .dialog
                     width: 100%
-                    padding: 30px
+                    padding: 20px
                     max-width: 550px
                     background: $bgColor
                     color: $white
@@ -49,25 +49,30 @@ html
                     text-align: center
                     display: flex
                     flex-direction: column
-                    overflow: hidden
                     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
                     -webkit-animation-name: animatetop
-                    -webkit-animation-duration: 0.4s
+                    -webkit-animation-duration: 0.2s
                     animation-name: slide-in
-                    animation-duration: 0.5s
+                    animation-duration: 0.2s
+
                     .header
                         justify-content: space-between
-                        .title
+                        .title-modal
+                            text-align: left
                             font-size: 20px
                             letter-spacing: 0.15px
                     .btn-close
+                        margin: 0
                         width: 100%
+                        height: 40px
                         border: 1px solid $blue
                         background-color: $bgColor
                         color: $blue
                     .body
                         overflow: auto
-                    .content
+                    .content-modal
+                        margin-top: 10px
+                        margin-bottom: 20px
                         font-size: 14px
                         letter-spacing: 0.25px
                         text-align: left
@@ -82,7 +87,6 @@ html
                         transform: translateY(-150px)
                     to
                         transform: translateY(0)
-
             .title
                 display: flex
                 margin-left: auto
@@ -99,6 +103,13 @@ html
                 height: 24px
                 margin-bottom: -8px
                 float: right
+            .back-icon
+                width: 24px
+                height: 24px
+                position: fixed
+                z-index: 10
+                top: 61px
+                left: 16px
             .filter
                 display: flex
                 justify-content: center
@@ -145,6 +156,7 @@ html
                     .name,
                     .password
                         font-size: 14px
+
                     img
                         position: absolute
                         left: 30px
@@ -165,6 +177,9 @@ html
                             margin-left: 10px
                             color: $gray1
                             font-size: 16px
+                        &:-webkit-autofill
+                            -webkit-box-shadow: inset 0 0 0 50px $bgColor2
+                            -webkit-text-fill-color: white
                     .name
                         img
                             bottom: 143px
@@ -196,6 +211,7 @@ html
                 *
                     margin: 5px
                 h1
+                    text-align: left
                     margin: 40px
 
                 .name
@@ -215,27 +231,38 @@ html
                         margin-left: 10px
                         color: $gray1
                         font-size: 16px
+                    &:-webkit-autofill
+                        -webkit-box-shadow: inset 0 0 0 50px $bgColor2
+                        -webkit-text-fill-color: white
                 .signin
                     img
                         position: absolute
-                        left: 50px
+                        left: 45px
                     #login,#password
-                        width: 65%
-                        padding-left: 80px
+                        width: 72%
+                        padding-left: 60px
                     #loginIcon
-                        bottom: 150px
+                        bottom: 145px
                     #passwordIcon
-                        bottom: 55px
+                        bottom: 50px
                     button
+                        margin-top: 30px
                         font-size: 16px
                         line-height: 24px
                         letter-spacing: 0.15px
-                        width: 87%
+                        width: 90%
                         background-color: $blue
                         color: white
                         height: 48px
                         border-radius: 13px
                         border: none
+
+            .error
+                border: 1px solid $red !important
+                color: $red
+                &::before
+                    content: 'Обязательное поле'
+
             .count
                 margin: 15px
                 font-size: 10px
@@ -282,12 +309,12 @@ html
                 font-size: 13px
                 .ava
                     position: absolute
-                    top: 138px
-                    left: 110px
+                    top: 166px
+                    left: 115px
                     width: 146px
                     height: 146px
                     border-radius: 50%
-                    border: 7px solid
+                    border: 8px solid
                     border-color: $bgColor
                 .bg-image
                     margin: -10px
@@ -297,6 +324,7 @@ html
                     z-index: -1
                     opacity: 0.5
                 .name
+                    line-height: 40px
                     margin-top: 90px
                     font-size: 34px
                 .alive
@@ -318,37 +346,40 @@ html
                     display: flex
                     flex-wrap: wrap
                     justify-content: space-around
-                    *
+                    *:not(.arrow-icon)
                         flex-basis: 50%
                         margin-top: 10px
                         color: $gray2
+                    .arrow-icon
+                        margin-bottom: 10px
                     .gender
                         color: $white
                     .race
                         color: $white
                     .placeOfBirth
-                        align-items: center
                         width: 360px
                         color: $white
                     .location
-                        align-items: center
                         width: 360px
                         color: $white
             .episodes
                 .episode-item
-                    width: 95%
-                    margin: 5px
+                    width: 100%
+                    margin-top: 20px
+                    margin-bottom: 10px
                     display: flex
                     align-items: center
                     .logo
-                        width: 74px
-                        height: 74px
-                        border-radius: 10%
+                        width: 70px
+                        height: 70px
+                        border-radius: 10px
                         object-fit: cover
                     .about-episode
+                        height: 60px
+                        margin-bottom: 5px
                         *
-                            margin: 1px 10px 2px 10px
-                        .name
+                            margin: 1px 10px 2px 20px
+                        .name-episode
                             letter-spacing: 0.5px
                             font-size: 16px
                         .series
@@ -360,13 +391,15 @@ html
                             font-size: 14px
                             color: $gray2
             .seasons
+                width: 120%
                 display: flex
-                margin: 10px
                 .season
                     flex-grow: 1
                     color: $gray2
                     font-weight: 500
                     font-size: 14px
+                    letter-spacing: 1.5px
+                    line-height: 24px
                     &::before
                         content: 'СЕЗОН '
                     &:focus
@@ -378,7 +411,7 @@ html
                     margin: 70px 5px 5px 5px
                     border-radius: 20%
                     .name
-                        line-height: 150%
+                        line-height: 32px
                         font-size: 24px
                     .series
                         margin: 15px
@@ -463,8 +496,7 @@ html
                     fill: white
                     width: 106%
             .settings
-                *
-                    margin: 10px
+                margin: 10px
                 .profile
                     display: flex
                     align-items: center
@@ -499,16 +531,21 @@ html
                     display: flex
                     align-items: center
                     justify-content: center
-                    // TAG- maybe don't work
+                    margin-top: 15px
+                    margin-bottom: 15px
                     .pallete
                         width: 36px
                         height: 36px
                     .about
-                        align-self: center
+                        align-items: center
+                        margin: 10px
+                        margin-left: 15px
                         width: 100%
                         .name
+                            letter-spacing: 0.15px
                             color: white
                             font-size: 16px
+                            line-height: 24px
                         .status
                             font-size: 14px
                 .about-text,
@@ -518,8 +555,9 @@ html
                     letter-spacing: 0.25px
         // FIXME- fix navbar position on render
         .nav-bar
-            width: 100%
             min-width: 375px
+            width: 100%
+            max-width: 385px
             background-color: $bgColor2
             display: flex
             text-align: center
