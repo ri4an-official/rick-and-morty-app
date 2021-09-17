@@ -17,6 +17,9 @@ export const App = () => (
         <main className='content'>
             <Switch>
                 <Route exact path='/' component={Characters} />
+                <Route exact path='/locations/null' component={NotFound} />
+                <Route exact path='/episodes/null' component={NotFound} />
+                <Route exact path='/characters/null' component={NotFound} />
                 <Route exact path='/characters' component={Characters} />
                 <Route exact path='/characters/:id' component={SelectedCharacter} />
                 <Route exact path='/locations' component={Locations} />
