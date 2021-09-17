@@ -39,8 +39,8 @@ export const Characters = observer(() => {
             />
             <div className='count'>ВСЕГО ПЕРСОНАЖЕЙ: {characters.total}</div>
             <div className='characters'>
-                {characters.list.map((ch) => (
-                    <Link to={`/characters/${ch.id}`}>
+                {characters.list.map((ch, i) => (
+                    <Link to={`/characters/${ch.id}`} key={i}>
                         <CharacterItem>{ch}</CharacterItem>
                     </Link>
                 ))}
