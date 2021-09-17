@@ -6,7 +6,7 @@ export const Search = (props: {
     onSubmit: (query: string) => Promise<any>
 }) => {
     // TODO- add filter
-    const input = useInput('')
+    const input = useInput()
     return (
         <div className='filter'>
             <img className='seacrh-icon' src={search} alt='search' />
