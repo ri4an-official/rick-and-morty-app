@@ -6,14 +6,14 @@ import { ArrowIcon } from '../../common/icons/ArrowIcon'
 import { Loader } from '../../common/Loader'
 import { CharacterItem } from '../Characters/CharacterItem'
 import video from './../../assets/svg/video-play.svg'
+import { BackIcon } from '../../common/icons/BackIcon'
 export const SelectedEpisode = observer(() => {
     const id = useParams<{ id: string }>().id
-    useAsyncEffect(async () => {
-        await episodes.getById(id)
-    }, [id])
+    useAsyncEffect(async () => await episodes.getById(id), [id])
     const ep = episodes.selected
     return episodes.selected.id === id ? (
         <div className='selected-episode'>
+            <BackIcon />
             <div className='video-player center'>
                 <img className='bg-image' src={ep.imageName} alt='episode'></img>
                 <img className='player' src={video} alt='video' />

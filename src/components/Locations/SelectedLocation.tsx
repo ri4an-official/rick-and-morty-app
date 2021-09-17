@@ -7,15 +7,15 @@ import { NoImageIcon } from '../../common/icons/NoImageIcon'
 import { Loader } from '../../common/Loader'
 import { CharacterItem } from '../Characters/CharacterItem'
 import { PointIcon } from '../../common/icons/PointIcon'
+import { BackIcon } from '../../common/icons/BackIcon'
 
 export const SelectedLocation = observer(() => {
     const id = useParams<{ id: string }>().id
-    useAsyncEffect(async () => {
-        await locations.getById(id)
-    }, [id])
+    useAsyncEffect(async () => await locations.getById(id), [id])
     const loc = locations.selected
     return locations.selected.id === id ? (
         <div className='selected-location'>
+            <BackIcon />
             {loc.imageName ? (
                 <img className='bg-image' src={loc.imageName} alt='' />
             ) : (

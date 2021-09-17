@@ -6,14 +6,14 @@ import { GenderCharacter, StatusCharacter } from './CharacterItem'
 import { Loader } from '../../common/Loader'
 import { EpisodeItem } from '../Episodes/EpisodeItem'
 import { ArrowIcon } from '../../common/icons/ArrowIcon'
+import { BackIcon } from '../../common/icons/BackIcon'
 export const SelectedCharacter = observer(() => {
     const id = useParams<{ id: string }>().id
-    useAsyncEffect(async () => {
-        await characters.getById(id)
-    }, [id])
+    useAsyncEffect(async () => await characters.getById(id), [id])
     const sch = characters.selected
     return characters.selected.id === id ? (
         <div className='selected-character'>
+            <BackIcon />
             <div className='center'>
                 <img className='bg-image' src={sch.imageName} alt='bg' />
                 <img className='ava' src={sch.imageName} alt='selected-character' />
