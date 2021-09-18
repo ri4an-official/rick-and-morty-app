@@ -13,6 +13,7 @@ export const Register = observer(() => {
     const password = useInput(true)
     return (
         <div className='register'>
+            {/* // TODO- add back icon */}
             <h1>Создать аккаунт</h1>
             <div className='name'>Имя</div>
             <input
