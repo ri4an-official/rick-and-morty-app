@@ -11,6 +11,7 @@ import { NavBar } from './components/NavBar'
 import { Settings } from './components/Settings'
 import { Login } from './components/Login'
 import { Register } from './components/Register'
+import { withAuth } from './common/hocs/withAuth'
 
 export const App = () => (
     <div className='app'>
@@ -26,7 +27,7 @@ export const App = () => (
                 <Route exact path='/locations/:id' component={SelectedLocation} />
                 <Route exact path='/episodes' component={Episodes} />
                 <Route exact path='/episodes/:id' component={SelectedEpisode} />
-                <Route exact path='/settings' component={Settings} />
+                <Route exact path='/settings' component={withAuth(Settings)} />
                 <Route exact path='/login' component={Login} />
                 <Route exact path='/register' component={Register} />
                 <Route exact component={NotFound} />
