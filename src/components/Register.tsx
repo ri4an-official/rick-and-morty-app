@@ -4,6 +4,7 @@ import passwordIcon from './../assets/svg/password.svg'
 import { useInput } from '../common/hooks/useInput'
 import user from '../models/store/user'
 import { useHistory } from 'react-router'
+import { BackIcon } from '../common/icons/BackIcon'
 export const Register = observer(() => {
     const history = useHistory()
     const firstName = useInput(true)
@@ -14,6 +15,7 @@ export const Register = observer(() => {
     return (
         <div className='register'>
             {/* // TODO- add back icon */}
+            <BackIcon />
             <h1>Создать аккаунт</h1>
             <div className='name'>Имя</div>
             <input
