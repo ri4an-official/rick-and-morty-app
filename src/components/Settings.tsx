@@ -9,8 +9,22 @@ import { Modal } from './Modal'
 // TODO- add theme
 export const Settings = observer(() => {
     const [isVisible, setIsVisible] = useState(false)
-    const [selectedRadio, setSelectedRadio] = useState('')
-    const handleSelected = (e: any) => setSelectedRadio(e.target.value)
+    const [selectedRadio, setSelectedRadio] = useState('включена')
+    const handleSelected = (e: any) => {
+        setSelectedRadio(e.target.value)
+        document.documentElement.classList.remove(`theme-${user.theme}`)
+        switch (selectedRadio) {
+            case 'включена':
+                user.theme = 'light'
+                break
+            case 'выключена':
+                user.theme = 'dark'
+                break
+            default:
+                user.theme = 'light'
+        }
+        document.documentElement.classList.add(`theme-${user.theme}`)
+    }
     return (
         <div className='settings'>
             <div className='profile'>
@@ -33,34 +47,43 @@ export const Settings = observer(() => {
                     Content={({ onClose }) => (
                         <>
                             <div className='radio-btns'>
-                                <input
-                                    type='radio'
-                                    value='включена'
-                                    checked={selectedRadio === 'включена'}
-                                    onChange={handleSelected}
-                                />
-                                <label>Включена</label>
-                                <input
-                                    type='radio'
-                                    value='выключена'
-                                    checked={selectedRadio === 'выключена'}
-                                    onChange={handleSelected}
-                                />
-                                <label>Выключена</label>
-                                <input
-                                    type='radio'
-                                    value='настройки'
-                                    checked={selectedRadio === 'настройки'}
-                                    onChange={handleSelected}
-                                />
-                                <label>Следовать настройкам системы</label>
-                                <input
-                                    type='radio'
-                                    value='энергосбережение'
-                                    checked={selectedRadio === 'энергосбережение'}
-                                    onChange={handleSelected}
-                                />
-                                <label>В режиме энергосбережения</label>
+                                <label>
+                                    <input
+                                        type='radio'
+                                        value='включена'
+                                        checked={selectedRadio === 'включена'}
+                                        onChange={handleSelected}
+                                    />
+                                    Включена
+                                </label>
+                                <label>
+                                    {' '}
+                                    <input
+                                        type='radio'
+                                        value='выключена'
+                                        checked={selectedRadio === 'выключена'}
+                                        onChange={handleSelected}
+                                    />
+                                    Выключена
+                                </label>
+                                <label>
+                                    <input
+                                        type='radio'
+                                        value='настройки'
+                                        checked={selectedRadio === 'настройки'}
+                                        onChange={handleSelected}
+                                    />
+                                    Следовать настройкам системы
+                                </label>
+                                <label>
+                                    <input
+                                        type='radio'
+                                        value='энергосбережение'
+                                        checked={selectedRadio === 'энергосбережение'}
+                                        onChange={handleSelected}
+                                    />
+                                    В режиме энергосбережения
+                                </label>
                             </div>
                             <button className='btn-cancel' onClick={onClose}>
                                 ОТМЕНА
