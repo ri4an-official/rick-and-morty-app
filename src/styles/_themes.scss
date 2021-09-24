@@ -1,0 +1,104 @@
+@import 'colors';
+
+.theme-light {
+    background-color: $bgColorLight2 !important;
+    color: black !important;
+    .app {
+        .content {
+            input {
+                background-color: $grayLight !important;
+                color: black !important;
+                &::placeholder {
+                    color: $grayLight2;
+                }
+            }
+            a {
+                color: black;
+            }
+            .arrow-icon {
+                stroke: black !important;
+            }
+            .filter {
+                .vertical-line {
+                    border-left: 1px solid #bdbdbd;
+                }
+            }
+            hr {
+                color: black !important;
+            }
+            .question {
+                a {
+                    color: $green;
+                }
+            }
+            .selected-character {
+                .ava {
+                    border-color: $bgColorLight2 !important;
+                }
+
+                .race,
+                .gender,
+                .location,
+                .placeOfBirth {
+                    color: black !important;
+                }
+            }
+            .locations {
+                .location-item {
+                    background-color: $bgColorLight2;
+                    border: 1px solid $grayLight2;
+                }
+            }
+            .selected-episode {
+                .premiere {
+                    div {
+                        color: black !important;
+                    }
+                }
+            }
+            .settings {
+                .edit {
+                    background-color: $bgColorLight2;
+                }
+                .pallete {
+                    fill: $gray2 !important;
+                }
+            }
+        }
+
+        .nav-bar {
+            background-color: white;
+            a {
+                color: $grayLight2;
+                fill: $grayLight2;
+                stroke: $grayLight2;
+                &:focus {
+                    * {
+                        stroke: $blue;
+                        color: $blue;
+                    }
+                }
+                &:first-child:focus {
+                    * {
+                        stroke: none;
+                        fill: $blue;
+                        color: $blue;
+                    }
+                }
+            }
+        }
+    }
+}
+.theme-dark {
+    // default theme
+}
+$themes: (
+    light: (
+        color-background: white,
+        color-card: black,
+    ),
+    dark: (
+        color-background: $bgColor,
+        color-card: $gray2,
+    ),
+);
