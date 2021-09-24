@@ -1,10 +1,11 @@
 @import colors
 @import default
+@import mixins
 
 html
     background-color: $bgColor
     color: $white
-    max-width: 375px
+    min-width: 365px
     font-family: Arial, Helvetica, sans-serif
     font-weight: 400
     line-height: 19.5px
@@ -15,7 +16,7 @@ html
     align-items: center
     hr
         border: 1px solid $bgColor2
-    img
+    img,svg
         object-fit: cover
     a
         text-decoration: none
@@ -24,6 +25,34 @@ html
         .content
             padding: 10px
             @import loader
+            @import 'themes'
+            @include theme-aware('background', 'color-background')
+            .characters-not-found,
+            .locations-not-found,
+            .episodes-not-found
+                display: flex
+                justify-content: center
+                align-items: center
+                flex-wrap: wrap
+                height: 28em
+                p
+                    color: $gray2
+                    font-size: 16px
+                    line-height: 24px
+                    text-align: center
+                    letter-spacing: 0.15px
+            .characters-not-found
+                svg
+                    width: 150px
+                    height: 251px
+            .locations-not-found
+                svg
+                    width: 298px
+                    height: 135px
+            .episodes-not-found
+                svg
+                    width: 161px
+                    height: 212px
             .modal
                 padding: 30px
                 position: fixed
@@ -31,7 +60,6 @@ html
                 bottom: 0
                 left: 0
                 right: 0
-                width: 80%
                 z-index: 9999
                 display: flex
                 align-items: center
@@ -43,8 +71,8 @@ html
                     width: 100%
                     padding: 20px
                     max-width: 550px
-                    background: $bgColor
-                    color: $white
+                    background-color: $bgColor
+                    color: white
                     border-radius: 12px
                     text-align: center
                     display: flex
@@ -66,7 +94,7 @@ html
                         width: 100%
                         height: 40px
                         border: 1px solid $blue
-                        background-color: $bgColor
+                        background-color: inherit
                         color: $blue
                     .body
                         overflow: auto
@@ -98,18 +126,18 @@ html
                     fill: $blue
                     flex-basis: 2%
                 label
-                    margin-left: 10px
+                    margin-left: 5px
                     margin-top: 3px
                     text-align: left
-                    flex-basis: 85%
+                    flex-basis: 95%
                     font-size: 16px
                     line-height: 24px
                     letter-spacing: 0.15px
             .btn-cancel
                 margin: 10px 0px
                 float: right
-                background-color: $bgColor
-                color: white
+                background-color: inherit
+                color: inherit
                 border: none
                 font-style: normal
                 font-weight: 500
@@ -173,6 +201,8 @@ html
                     outline: none
                     color: $gray2
                     background-color: $bgColor2
+                    &::placeholder
+                        color: $gray2
                 .vertical-line
                     position: absolute
                     right: 65px
@@ -209,9 +239,6 @@ html
                             margin-left: 10px
                             color: $gray1
                             font-size: 16px
-                        &:-webkit-autofill
-                            -webkit-box-shadow: inset 0 0 0 50px $bgColor2
-                            -webkit-text-fill-color: white
                     .name
                         img
                             bottom: 143px
@@ -263,9 +290,6 @@ html
                         margin-left: 10px
                         color: $gray1
                         font-size: 16px
-                    &:-webkit-autofill
-                        -webkit-box-shadow: inset 0 0 0 50px $bgColor2
-                        -webkit-text-fill-color: white
                 .signin
                     img
                         position: absolute
@@ -288,13 +312,11 @@ html
                         height: 48px
                         border-radius: 13px
                         border: none
-
             .error
                 border: 1px solid $red !important
                 color: $red
                 &::before
                     content: 'Обязательное поле'
-
             .count
                 margin: 15px
                 font-size: 10px
@@ -590,7 +612,6 @@ html
         .nav-bar
             min-width: 375px
             width: 100%
-            max-width: 385px
             background-color: $bgColor2
             display: flex
             text-align: center
