@@ -7,6 +7,7 @@ class User {
     auth = false
     error = ''
     token = ''
+    theme = 'light'
     constructor() {
         makeAutoObservable(this)
     }
