@@ -53,7 +53,7 @@ export const Settings = observer(() => {
                                         value='включена'
                                         checked={selectedRadio === 'включена'}
                                         onChange={handleSelected}
-                                    />
+                                    />  
                                     Включена
                                 </label>
                                 <label>

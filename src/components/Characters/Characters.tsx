@@ -19,7 +19,6 @@ export const Characters = observer(() => {
     }, [fetching])
     useEffect(() => {
         document.addEventListener('scroll', scrollHandler)
-        document.documentElement.classList.add('theme-light')
         return () => document.removeEventListener('scroll', scrollHandler)
     }, [])
     const scrollHandler = (e: any) => {
